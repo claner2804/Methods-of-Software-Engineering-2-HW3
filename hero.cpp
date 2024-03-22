@@ -62,6 +62,7 @@ const Item* Hero::getInventory(int i) const {
     }
 }
 
+
 int Hero::addInventarItem(const Item& item) {
     for (int i = 0; i < 10; i++) {
         if (!inventory[i].isIsValid()) {
