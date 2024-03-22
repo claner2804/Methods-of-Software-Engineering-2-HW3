@@ -30,24 +30,39 @@ const Item* Character::getInventory(int i) const {
     }
 }
 
+
+
+// Diese Methode fügt ein Item zum Inventar des Charakters hinzu
 int Character::addInventarItem(const Item& item) {
+    // Durchlaufen des Inventars
     for (int i = 0; i < 10; i++) {
+        // Überprüfung, ob der aktuelle Slot im Inventar leer ist
         if (!inventory[i].isIsValid()) {
+            // Hinzufügen des Items zum aktuellen Slot
             inventory[i] = item;
+            // Rückgabe des Index des Slots, in den das Item eingefügt wurde
             return i;
         }
     }
+    // Wenn kein leerer Slot gefunden wurde, Rückgabe von -1
     return -1;
 }
 
+
+
+// Diese Methode entfernt ein Item aus dem Inventar des Charakters
 Item Character::removeInventarItem(int slot) {
+    // Überprüfung, ob der angegebene Slot gültig ist
     if (slot >= 0 && slot < 10) {
+        // Speichern des Items aus dem angegebenen Slot in einer temporären Variable
         Item tmp = inventory[slot];
+        // Setzen des Slots auf ungültig
         inventory[slot].setIsValid(false);
+        // Rückgabe des entfernten Items
         return tmp;
     }
+    // Wenn der angegebene Slot ungültig ist, wird ein leeres Item zurückgegeben
     Item item;
     item.initItem();
     return item;
 }
-

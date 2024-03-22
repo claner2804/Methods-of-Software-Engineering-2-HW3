@@ -5,13 +5,19 @@
 #include <iostream>
 #include "character.h"
 
+// Diese Methode initialisiert einen Helden mit einem Namen, einer Gesundheitsmenge und einer Goldmenge
 void Hero::initHero(const std::string& name, int health, int gold) {
+    // Setzen des Namens des Helden
     this->name = name;
+    // Setzen der Gesundheit des Helden
     this->health = health;
+    // Setzen des Goldes des Helden
     this->gold = gold;
+    // Initialisierung des Inventars des Helden mit leeren Gegenständen
     for (int t = 0; t < 10; t++) {
         inventory[t].initItem();
     }
+    // Initialisierung der Ausrüstung des Helden mit leeren Gegenständen
     for (int t = 0; t < 2; t++) {
         gear[t].initItem();
     }
@@ -23,19 +29,33 @@ void Hero::attack(Character& enemy) {
     enemy.setHealth(enemy.getHealth() - dice);
 }
 
+
+
+
+// Diese Methode verkauft ein Item aus dem Inventar des Helden
 Item Hero::sellItem(int index) {
+    // Überprüfung, ob der angegebene Index gültig ist
     if (index >= 0 && index < 10) {
+        // Überprüfung, ob das Item an dem angegebenen Index gültig ist
         if (inventory[index].isIsValid()) {
+            // Speichern des Items in einer temporären Variable
             Item item = inventory[index];
+            // Erhöhung des Goldes des Helden um den Goldwert des Items
             setGold(gold += inventory[index].getGold());
+            // Setzen des Items auf ungültig
             inventory[index].setIsValid(false);
+            // Rückgabe des verkauften Items
             return item;
         }
     }
+    // Wenn der angegebene Index ungültig ist oder das Item ungültig ist, wird ein leeres Item zurückgegeben
     Item item;
     item.initItem();
     return item;
 }
+
+
+
 
 bool Hero::fight(Character& enemy) {
     while (health > 0 && enemy.getHealth() > 0) {

@@ -25,13 +25,21 @@ public:
 
     bool fight(Character& enemy);
 
+
+
+// Diese Methode gibt einen Zeiger auf ein Ausrüstungsitem an einer bestimmten Position zurück
     const Item* getGear(int i) const {
+        // Überprüfung, ob der angegebene Index gültig ist
         if (i >= 0 && i < 2) {
+            // Rückgabe eines Zeigers auf das Ausrüstungsitem an der angegebenen Position
             return &gear[i];
         } else {
+            // Wenn der angegebene Index ungültig ist, wird ein Nullzeiger zurückgegeben
             return nullptr;
         }
     }
+
+
 
     int getGold() const {
         return gold;
