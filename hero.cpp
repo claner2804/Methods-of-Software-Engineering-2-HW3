@@ -1,0 +1,105 @@
+
+#include "hero.h"
+#include <cstring>
+#include <cstdlib>
+#include <iostream>
+#include "character.h"
+
+void Hero::initHero(const std::string& name, int health, int gold) {
+    this->name = name;
+    this->health = health;
+    this->gold = gold;
+    for (int t = 0; t < 10; t++) {
+        inventory[t].initItem();
+    }
+    for (int t = 0; t < 2; t++) {
+        gear[t].initItem();
+    }
+}
+
+void Hero::attack(Character& enemy) {
+    int dice = 15 + std::rand() % 11;
+    std::cout << name << " trifft " << enemy.getName() << " fuer " << dice << " Lebenspunkte!" << std::endl;
+    enemy.setHealth(enemy.getHealth() - dice);
+}
+
+Item Hero::sellItem(int index) {
+    if (index >= 0 && index < 10) {
+        if (inventory[index].isIsValid()) {
+            Item item = inventory[index];
+            setGold(gold += inventory[index].getGold());
+            inventory[index].setIsValid(false);
+            return item;
+        }
+    }
+    Item item;
+    item.initItem();
+    return item;
+}
+
+bool Hero::fight(Character& enemy) {
+    while (health > 0 && enemy.getHealth() > 0) {
+        attack(enemy);
+        if (enemy.getHealth() > 0) {
+            enemy.attack(*this);
+        }
+    }
+    if (enemy.getHealth() <= 0) {
+        std::cout << enemy.getName() << " fiel in Ohnmacht! " << name << " hat noch " << health << " Lebenspunkte uebrig!" << std::endl;
+        return true;
+    } else {
+        std::cout << name << " fiel in Ohnmacht! GAME OVER!" << std::endl;
+        return false;
+    }
+}
+
+
+const Item* Hero::getInventory(int i) const {
+    if (i >= 0 && i < 2) {
+        return &inventory[i];
+    } else {
+        return nullptr;
+    }
+}
+
+int Hero::addInventarItem(const Item& item) {
+    for (int i = 0; i < 10; i++) {
+        if (!inventory[i].isIsValid()) {
+            inventory[i] = item;
+            return i;
+        }
+    }
+    return -1;
+}
+
+Item Hero::removeInventarItem(int slot) {
+    if (slot >= 0 && slot < 10) {
+        Item tmp = inventory[slot];
+        inventory[slot].setIsValid(false);
+        return tmp;
+    }
+    Item item;
+    item.initItem();
+    return item;
+}
+
+int Hero::addEquipmentItem(const Item& item) {
+    for (int i = 0; i < 2; i++) {
+        if (!gear[i].isIsValid()) {
+            gear[i] = item;
+            return i;
+        }
+    }
+    return -1;
+}
+
+Item Hero::removeEquipmentItem(int slot) {
+    if (slot >= 0 && slot < 2) {
+        Item tmp = gear[slot];
+        gear[slot].setIsValid(false);
+        return tmp;
+    }
+    Item item;
+    item.initItem();
+    return item;
+}
