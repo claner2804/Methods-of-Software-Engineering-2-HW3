@@ -71,3 +71,26 @@ Item Character::removeInventarItem(int slot) {
 }
 
 
+
+// Diese Methode entfernt ein zufälliges Item aus dem Inventar des Charakters
+Item Character::retrieveRandomLoot() {
+    // Durchlaufen des Inventars
+    for (int i = 0; i < 10; i++) {
+        // Generierung einer zufälligen Zahl zwischen 0 und 9
+        int dice = rand() % 10;
+        // Entfernen des Items an der Position "dice" aus dem Inventar
+        Item item = removeInventarItem(dice);
+        // Überprüfung, ob das entfernte Item gültig ist
+        if (item.isIsValid()) {
+            // Rückgabe des entfernten Items
+            return item;
+        }
+    }
+    // Wenn kein gültiges Item gefunden wurde, Rückgabe eines leeren Items
+    return Item();
+}
+
+
+
+
+

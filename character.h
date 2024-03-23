@@ -85,6 +85,8 @@ public:
     int addInventarItem(const Item& item);
     Item removeInventarItem(int slot);
 
+    Item retrieveRandomLoot();
+
 
 };
 
