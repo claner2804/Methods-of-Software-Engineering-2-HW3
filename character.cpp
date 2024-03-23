@@ -10,10 +10,12 @@
 Character::Character() {}
 
 
-Character::Character(const std::string& name, int health, int gold) {
+Character::Character(const std::string& name, int health, int gold, int armor, int magic_resistance) {
     this->name = name;
     this->health = health;
     this->gold = gold;
+    this->armor = armor;
+    this->magic_resistance = magic_resistance;
     for (int t = 0; t < 10; t++) {
         inventory[t] = Item();
     }

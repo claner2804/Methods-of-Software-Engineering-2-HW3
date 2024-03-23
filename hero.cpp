@@ -1,6 +1,5 @@
 
 #include "hero.h"
-#include <cstring>
 #include <cstdlib>
 #include <iostream>
 #include "character.h"
@@ -9,17 +8,7 @@
 Hero::Hero() {}
 
 
-Hero::Hero(const std::string &name, int health, int gold) {
-    // Setzen des Namens des Helden
-    this->name = name;
-    // Setzen der Gesundheit des Helden
-    this->health = health;
-    // Setzen des Goldes des Helden
-    this->gold = gold;
-    // Initialisierung des Inventars des Helden mit leeren Gegenständen
-    for (int t = 0; t < 10; t++) {
-        inventory[t] = Item();
-    }
+Hero::Hero(const std::string &name, int health, int gold, int armor, int magic_resistance) : Character(name, health, gold, armor, magic_resistance) {
     // Initialisierung der Ausrüstung des Helden mit leeren Gegenständen
     for (int t = 0; t < 2; t++) {
         gear[t] = Item();
@@ -128,5 +117,4 @@ Item Hero::removeEquipmentItem(int slot) {
     }
     return Item();
 }
-
 

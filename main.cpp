@@ -44,30 +44,30 @@ int main() {
     std::srand(std::time(nullptr));
 
     // Initialisierung des Helden
-    Hero hero("Annina", 300, 10);
+    Hero Hero("Annina", 300, 10, 20, 30);
 
     // Initialisierung des Charakters Matthias
-    Npc matthias("Matthias", 50, 100);
+    Npc matthias("Matthias", 50, 100, 20, 30);
     Item item1("Zaubertrank", 120);
     matthias.addInventarItem(item1);
     Item item2("Schwert", 80);
     matthias.addInventarItem(item2);
 
     // Initialisierung des Charakters Pascal
-    Npc pascal("Pascal", 100, 100);
+    Npc pascal("Pascal", 100, 100, 20, 30);
     Item item3("Diamant", 300);
     pascal.addInventarItem(item3);
     Item item4("Zauberstab", 80);
     pascal.addInventarItem(item4);
 
     // Der Held kämpft gegen den Charakter Matthias
-    if (hero.fight(matthias)) {
-        lootRandomItem(hero, matthias);
-        if (hero.fight(pascal)) {
-            lootRandomItem(hero, pascal);
+    if (Hero.fight(matthias)) {
+        lootRandomItem(Hero, matthias);
+        if (Hero.fight(pascal)) {
+            lootRandomItem(Hero, pascal);
             // Der Held verkauft alle Items im Inventar
             for (int t = 0; t < 10; t++) {
-                Item item = hero.sellItem(t);
+                Item item = Hero.sellItem(t);
                 if (item.isIsValid()) {
                     std::cout << item.getName() << " wurde für " << item.getGold() << " Gold verkauft" << std::endl;
                 }

@@ -16,7 +16,7 @@ public:
     //constructor und destructor
     Hero();
 
-    Hero(const std::string& name, int health, int gold);
+    Hero(const std::string& name, int health, int gold, int armor, int magic_resistance);
 
     virtual ~Hero();
 

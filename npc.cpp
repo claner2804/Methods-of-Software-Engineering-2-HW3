@@ -7,7 +7,7 @@
 
 Npc::Npc() {}
 
-Npc::Npc(const std::string& name, int health, int gold) : Character(name, health, gold) {}
+Npc::Npc(const std::string& name, int health, int gold, int armor, int magic_resistance) :  Character(name, health, gold, armor, magic_resistance) {}
 
 
 Npc::~Npc() {

@@ -16,7 +16,7 @@ class Npc : public Character{
 public:
     Npc();
 
-    Npc(const std::string& name, int health, int gold);
+    Npc(const std::string& name, int health, int gold, int armor, int magic_resistance );
 
     virtual ~Npc();
 

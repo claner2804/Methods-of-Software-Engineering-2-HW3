@@ -9,6 +9,7 @@
 
 class Fighter : public Npc{
 
+
 };
 
 

@@ -23,7 +23,7 @@ public:
     //constructor
     Character();
 
-    Character(const std::string& name, int health, int gold);
+    Character(const std::string& name, int health, int gold, int armor, int magic_resistance);
 
     //destructor
     virtual ~Character();
