@@ -23,9 +23,9 @@ Hero::~Hero() {
 
 
 void Hero::attack(Character& character) {
-    int dice = 15 + std::rand() % 11;
-    std::cout << name << " trifft " << getName() << " fuer " << dice << " Lebenspunkte!" << std::endl;
-    setHealth(getHealth() - dice);
+    int damage = rand() % 11 + 15 - character.getArmor();
+    std::cout << this->getName() << " trifft " << character.getName() << " fuer " << damage << " Lebenspunkte!" << std::endl;
+    character.setHealth(character.getHealth() - damage);
 }
 
 

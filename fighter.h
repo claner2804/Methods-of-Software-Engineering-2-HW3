@@ -9,6 +9,29 @@
 
 class Fighter : public Npc{
 
+private:
+    int strength;
+
+public:
+    Fighter();
+
+    Fighter(const std::string& name, int health, int gold, int armor, int magic_resistance, int strength);
+
+    virtual ~Fighter();
+
+    void attack(Character& character) override;
+
+    int getStrength() const {
+        return strength;
+    }
+
+    void setStrength(int strength) {
+        if (strength >= 0) {
+            this->strength = strength;
+        }
+    }
+
+
 
 };
 
