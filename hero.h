@@ -20,8 +20,8 @@ public:
 
     virtual ~Hero();
 
-
-    void attack(Character& enemy);
+    //vererbte Methode aus der Klasse Character wird überschrieben
+    void attack(Character& character) override;
 
     Item sellItem(int index);
 

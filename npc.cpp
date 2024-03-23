@@ -14,4 +14,10 @@ Npc::~Npc() {
     std::cout << "NPC " << name << " ist nicht mehr da. " << std::endl;
 }
 
+void Npc::attack(Character& character) {
+    int dice = 5 + std::rand() % 11;
+    std::cout << name << " trifft " << getName() << " fuer " << dice << " Lebenspunkte!" << std::endl;
+    setHealth(getHealth() - dice);
+}
+
 

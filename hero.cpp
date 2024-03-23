@@ -22,10 +22,10 @@ Hero::~Hero() {
 
 
 
-void Hero::attack(Character& enemy) {
+void Hero::attack(Character& character) {
     int dice = 15 + std::rand() % 11;
-    std::cout << name << " trifft " << enemy.getName() << " fuer " << dice << " Lebenspunkte!" << std::endl;
-    enemy.setHealth(enemy.getHealth() - dice);
+    std::cout << name << " trifft " << getName() << " fuer " << dice << " Lebenspunkte!" << std::endl;
+    setHealth(getHealth() - dice);
 }
 
 

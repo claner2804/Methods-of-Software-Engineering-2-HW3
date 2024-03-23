@@ -29,7 +29,28 @@ public:
     virtual ~Character();
 
 
-    void attack(Hero& hero);
+    virtual void attack(Character& character);
+
+    int getArmor() const {
+        return armor;
+    }
+
+    void setArmor(int armor) {
+        if (armor >= 0) {
+            this->armor = armor;
+        }
+    }
+
+    int getMagicResistance() const {
+        return magic_resistance;
+    }
+
+    void setMagicResistance(int magic_resistance) {
+        if (magic_resistance >= 0) {
+            this->magic_resistance = magic_resistance;
+        }
+    }
+
 
     int getGold() const {
         return gold;
@@ -58,8 +79,13 @@ public:
         return name;
     }
 
+
+
+
     int addInventarItem(const Item& item);
     Item removeInventarItem(int slot);
+
+
 };
 
 

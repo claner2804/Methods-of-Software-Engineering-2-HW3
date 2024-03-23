@@ -9,6 +9,25 @@
 #include "npc.h"
 
 class Sorcerer : public Npc{
+private:
+    int magicPower;
+
+public:
+    void attack(Character& character) override;
+
+    int getMagicPower() const {
+        return magicPower;
+    }
+
+    void setMagicPower(int magicPower) {
+        if (magicPower >= 0) {
+            this->magicPower = magicPower;
+        }
+    }
+
+    Sorcerer();
+
+    Sorcerer(const std::string& name, int health, int gold, int armor, int magic_resistance, int magicPower);
 
 };
 

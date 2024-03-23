@@ -20,6 +20,9 @@ public:
 
     virtual ~Npc();
 
+    //vererbte Methode von Character wird überschrieben
+    void attack(Character& character) override;
+
 
 
 };

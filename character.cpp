@@ -27,11 +27,7 @@ Character::~Character() {}
 
 
 
-void Character::attack(Hero& hero) {
-    int dice = 5 + std::rand() % 11;
-    std::cout << name << " trifft " << hero.getName() << " fuer " << dice << " Lebenspunkte!" << std::endl;
-    hero.setHealth(hero.getHealth() - dice);
-}
+void Character::attack(Character& character) {}
 
 const Item* Character::getInventory(int i) const {
     if (i >= 0 && i < 10) {
