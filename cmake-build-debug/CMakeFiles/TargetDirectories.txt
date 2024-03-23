@@ -1,3 +1,3 @@
-C:/Users/clane/CLionProjects/HW3/cmake-build-debug/CMakeFiles/HW3.dir
-C:/Users/clane/CLionProjects/HW3/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/clane/CLionProjects/HW3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/admin/Library/CloudStorage/OneDrive-mci4me.at/Digital Business & Software Engineering/Semester 2/Methoden der Softwareentwicklung 2/CLionProjects/Methods-of-Software-Engineering-2-HW3/cmake-build-debug/CMakeFiles/HW3.dir
+/Users/admin/Library/CloudStorage/OneDrive-mci4me.at/Digital Business & Software Engineering/Semester 2/Methoden der Softwareentwicklung 2/CLionProjects/Methods-of-Software-Engineering-2-HW3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/admin/Library/CloudStorage/OneDrive-mci4me.at/Digital Business & Software Engineering/Semester 2/Methoden der Softwareentwicklung 2/CLionProjects/Methods-of-Software-Engineering-2-HW3/cmake-build-debug/CMakeFiles/rebuild_cache.dir

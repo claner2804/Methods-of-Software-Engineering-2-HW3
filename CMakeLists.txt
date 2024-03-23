@@ -9,4 +9,10 @@ add_executable(HW3 main.cpp
         hero.cpp
         hero.h
         item.cpp
-        item.h)
+        item.h
+        npc.h
+        npc.cpp
+        sorcerer.h
+        sorcerer.cpp
+        fighter.cpp
+)

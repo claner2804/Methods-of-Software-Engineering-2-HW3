@@ -4,20 +4,22 @@
 
 #include "item.h"
 #include <string>
+#include "character.h"
 
-// forward declarations
-class Character;
 
-class Hero {
+class Hero : public Character {
 private:
-    std::string name;
-    int health;
-    int gold;
-    Item inventory[10];
     Item gear[10];
 
 public:
-    void initHero(const std::string& name, int health, int gold);
+
+    //constructor und destructor
+    Hero();
+
+    Hero(const std::string& name, int health, int gold);
+
+    virtual ~Hero();
+
 
     void attack(Character& enemy);
 
@@ -40,39 +42,16 @@ public:
     }
 
 
-
-    int getGold() const {
-        return gold;
-    }
-
-    void setGold(int gold) {
-        if (gold >= 0) {
-            this->gold = gold;
-        }
-    }
-
-    int getHealth() const {
-        return health;
-    }
-
-    void setHealth(int health) {
-        if (health < 0) {
-            health = 0;
-        }
-        this->health = health;
-    }
-
     const Item* getInventory(int i) const;
 
-    const std::string& getName() const {
-        return name;
-    }
 
     int addInventarItem(const Item& item);
     Item removeInventarItem(int slot);
 
     int addEquipmentItem(const Item& item);
     Item removeEquipmentItem(int slot);
+
+
 };
 
 

@@ -1,7 +1,11 @@
 
 #include "item.h"
 
-void Item::initItem(const std::string& name, int gold) {
+Item::Item() {
+    isValid = false;
+}
+
+Item::Item(const std::string &name, int gold) {
     this->name = name;
     if (gold >= 0) {
         this->gold = gold;
@@ -11,6 +15,8 @@ void Item::initItem(const std::string& name, int gold) {
     isValid = true;
 }
 
-void Item::initItem() {
-    isValid = false;
-}
+Item::~Item() {}
+
+
+
+

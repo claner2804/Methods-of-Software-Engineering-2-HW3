@@ -12,8 +12,11 @@ private:
     bool isValid;
 
 public:
-    void initItem();
-    void initItem(const std::string& name, int gold);
+
+    Item();
+    Item(const std::string& name, int gold);
+    virtual ~Item();
+
 
     int getGold() const {
         return gold;

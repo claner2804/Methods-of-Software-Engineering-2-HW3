@@ -6,18 +6,28 @@
 #include <string>
 
 // forward declarations
-struct Hero;
+class Hero;
 
 
 class Character {
-private:
+protected:
     std::string name;
     int health;
     int gold;
     Item inventory[10];
+    int armor;
+    int magic_resistance;
 
 public:
-    void initCharacter(const std::string& name, int health, int gold);
+
+    //constructor
+    Character();
+
+    Character(const std::string& name, int health, int gold);
+
+    //destructor
+    virtual ~Character();
+
 
     void attack(Hero& hero);
 

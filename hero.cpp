@@ -5,8 +5,11 @@
 #include <iostream>
 #include "character.h"
 
-// Diese Methode initialisiert einen Helden mit einem Namen, einer Gesundheitsmenge und einer Goldmenge
-void Hero::initHero(const std::string& name, int health, int gold) {
+//Konstruktor und Destruktor
+Hero::Hero() {}
+
+
+Hero::Hero(const std::string &name, int health, int gold) {
     // Setzen des Namens des Helden
     this->name = name;
     // Setzen der Gesundheit des Helden
@@ -15,13 +18,20 @@ void Hero::initHero(const std::string& name, int health, int gold) {
     this->gold = gold;
     // Initialisierung des Inventars des Helden mit leeren Gegenständen
     for (int t = 0; t < 10; t++) {
-        inventory[t].initItem();
+        inventory[t] = Item();
     }
     // Initialisierung der Ausrüstung des Helden mit leeren Gegenständen
     for (int t = 0; t < 2; t++) {
-        gear[t].initItem();
+        gear[t] = Item();
     }
 }
+
+Hero::~Hero() {
+    std::cout << "HeldIn " << name << " verabschiedet sich und reitet in den Sonnenuntergang... " << std::endl;
+}
+
+
+
 
 void Hero::attack(Character& enemy) {
     int dice = 15 + std::rand() % 11;
@@ -49,9 +59,7 @@ Item Hero::sellItem(int index) {
         }
     }
     // Wenn der angegebene Index ungültig ist oder das Item ungültig ist, wird ein leeres Item zurückgegeben
-    Item item;
-    item.initItem();
-    return item;
+    return Item();
 }
 
 
@@ -99,9 +107,7 @@ Item Hero::removeInventarItem(int slot) {
         inventory[slot].setIsValid(false);
         return tmp;
     }
-    Item item;
-    item.initItem();
-    return item;
+    return Item();
 }
 
 int Hero::addEquipmentItem(const Item& item) {
@@ -120,7 +126,7 @@ Item Hero::removeEquipmentItem(int slot) {
         gear[slot].setIsValid(false);
         return tmp;
     }
-    Item item;
-    item.initItem();
-    return item;
+    return Item();
 }
+
+

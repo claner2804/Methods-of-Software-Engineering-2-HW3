@@ -5,22 +5,31 @@
 #include <iostream>
 #include "hero.h"
 
+//konstruktoren und destruktoren
 
-void Character::initCharacter(const std::string& name, int health, int gold) {
+Character::Character() {}
+
+
+Character::Character(const std::string& name, int health, int gold) {
     this->name = name;
     this->health = health;
     this->gold = gold;
     for (int t = 0; t < 10; t++) {
-        inventory[t].initItem();
+        inventory[t] = Item();
     }
 }
+
+Character::~Character() {}
+
+
+
+
 
 void Character::attack(Hero& hero) {
     int dice = 5 + std::rand() % 11;
     std::cout << name << " trifft " << hero.getName() << " fuer " << dice << " Lebenspunkte!" << std::endl;
     hero.setHealth(hero.getHealth() - dice);
 }
-
 
 const Item* Character::getInventory(int i) const {
     if (i >= 0 && i < 10) {
@@ -62,7 +71,7 @@ Item Character::removeInventarItem(int slot) {
         return tmp;
     }
     // Wenn der angegebene Slot ungültig ist, wird ein leeres Item zurückgegeben
-    Item item;
-    item.initItem();
-    return item;
+    return Item();
 }
+
+

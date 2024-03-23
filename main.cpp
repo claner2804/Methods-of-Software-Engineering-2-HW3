@@ -5,6 +5,12 @@
 
 #include "hero.h"
 #include "character.h"
+#include "npc.h"
+#include "sorcerer.h"
+#include "fighter.h"
+#include "item.h"
+
+
 
 
 // Diese Funktion ermöglicht es einem Helden, ein zufälliges Item von einem Charakter zu plündern
@@ -38,27 +44,20 @@ int main() {
     std::srand(std::time(nullptr));
 
     // Initialisierung des Helden
-    Hero hero;
-    hero.initHero("Annina", 300, 10);
+    Hero hero("Annina", 300, 10);
 
     // Initialisierung des Charakters Matthias
-    Character matthias;
-    matthias.initCharacter("Matthias", 50, 100);
-    Item item1;
-    item1.initItem("Zaubertrank", 120);
+    Npc matthias("Matthias", 50, 100);
+    Item item1("Zaubertrank", 120);
     matthias.addInventarItem(item1);
-    Item item2;
-    item2.initItem("Schwert", 80);
+    Item item2("Schwert", 80);
     matthias.addInventarItem(item2);
 
     // Initialisierung des Charakters Pascal
-    Character pascal;
-    pascal.initCharacter("Pascal", 100, 100);
-    Item item3;
-    item3.initItem("Diamant", 300);
+    Npc pascal("Pascal", 100, 100);
+    Item item3("Diamant", 300);
     pascal.addInventarItem(item3);
-    Item item4;
-    item4.initItem("Zauberstab", 80);
+    Item item4("Zauberstab", 80);
     pascal.addInventarItem(item4);
 
     // Der Held kämpft gegen den Charakter Matthias
