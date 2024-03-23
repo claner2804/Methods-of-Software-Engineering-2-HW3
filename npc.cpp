@@ -15,9 +15,16 @@ Npc::~Npc() {
 }
 
 void Npc::attack(Character& character) {
-    int dice = 5 + std::rand() % 11;
-    std::cout << name << " trifft " << getName() << " fuer " << dice << " Lebenspunkte!" << std::endl;
-    setHealth(getHealth() - dice);
+    int damage = 5 + std::rand() % 11;
+    if (damage < 0) {
+        damage = 0;
+    }
+    std::cout << name << " trifft " << getName() << " fuer " << damage << " Lebenspunkte!" << std::endl;
+    if (character.getHealth() - damage < 0) {
+        character.setHealth(0);
+    } else {
+        character.setHealth(character.getHealth() - damage);
+    }
 }
 
 

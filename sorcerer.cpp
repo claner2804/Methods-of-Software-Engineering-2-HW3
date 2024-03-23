@@ -11,8 +11,15 @@ Sorcerer::Sorcerer(const std::string &name, int health, int gold, int armor, int
 
 void Sorcerer::attack(Character &character) {
     int damage = rand() % 6 + 5 + this->getMagicPower() - character.getMagicResistance();
+    if (damage < 0) {
+        damage = 0;
+    }
     std::cout << this->getName() << " trifft " << character.getName() << " fuer " << damage << " Lebenspunkte!" << std::endl;
-    character.setHealth(character.getHealth() - damage);
+    if (character.getHealth() - damage < 0) {
+        character.setHealth(0);
+    } else {
+        character.setHealth(character.getHealth() - damage);
+    }
 }
 
 

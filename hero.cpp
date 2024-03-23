@@ -24,8 +24,15 @@ Hero::~Hero() {
 
 void Hero::attack(Character& character) {
     int damage = rand() % 11 + 15 - character.getArmor();
+    if (damage < 0) {
+        damage = 0;
+    }
     std::cout << this->getName() << " trifft " << character.getName() << " fuer " << damage << " Lebenspunkte!" << std::endl;
-    character.setHealth(character.getHealth() - damage);
+    if (character.getHealth() - damage < 0) {
+        character.setHealth(0);
+    } else {
+        character.setHealth(character.getHealth() - damage);
+    }
 }
 
 

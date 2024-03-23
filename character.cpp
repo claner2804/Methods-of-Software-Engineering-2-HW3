@@ -25,8 +25,6 @@ Character::~Character() {}
 
 
 
-
-
 void Character::attack(Character& character) {}
 
 const Item* Character::getInventory(int i) const {

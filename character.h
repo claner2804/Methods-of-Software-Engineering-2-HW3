@@ -28,7 +28,7 @@ public:
     //destructor
     virtual ~Character();
 
-
+//unterklassen können diese Methode überschreiben, dynamische Bindung
     virtual void attack(Character& character);
 
     int getArmor() const {

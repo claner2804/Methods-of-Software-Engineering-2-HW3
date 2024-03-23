@@ -12,8 +12,15 @@ Fighter::Fighter(const std::string &name, int health, int gold, int armor, int m
 
 void Fighter::attack(Character &character) {
     int damage = rand() % 6 + 5 + this->getStrength() - character.getArmor();
+    if (damage < 0) {
+        damage = 0;
+    }
     std::cout << this->getName() << " trifft " << character.getName() << " fuer " << damage << " Lebenspunkte!" << std::endl;
-    character.setHealth(character.getHealth() - damage);
+    if (character.getHealth() - damage < 0) {
+        character.setHealth(0);
+    } else {
+        character.setHealth(character.getHealth() - damage);
+    }
 }
 
 Fighter::~Fighter() { }
