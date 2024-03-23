@@ -23,6 +23,7 @@ Hero::~Hero() {
 
 
 void Hero::attack(Character& character) {
+
     int damage = rand() % 11 + 15 - character.getArmor();
     if (damage < 0) {
         damage = 0;
@@ -62,6 +63,7 @@ Item Hero::sellItem(int index) {
 
 
 bool Hero::fight(Character& enemy) {
+
     while (health > 0 && enemy.getHealth() > 0) {
         attack(enemy);
         if (enemy.getHealth() > 0) {
