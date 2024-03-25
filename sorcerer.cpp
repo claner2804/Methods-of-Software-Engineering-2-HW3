@@ -22,4 +22,14 @@ void Sorcerer::attack(Character &character) {
     }
 }
 
+std::ostream &operator<<(std::ostream &os, const Sorcerer &sorcerer) {
+    os << "Die Kampfarena betritt Zauberer " << sorcerer.getName() << " mit "
+       << sorcerer.getHealth() << " Gesundheitspunkten, "
+       << sorcerer.getArmor() << " Rüstungspunkten, "
+       << sorcerer.getMagicResistance() << " Magieresistenzpunkten, "
+       << sorcerer.getGold() << " Goldstücken im Beutel und "
+       << sorcerer.getMagicPower() << " Magiepunkten.";
+    return os;
+}
+
 

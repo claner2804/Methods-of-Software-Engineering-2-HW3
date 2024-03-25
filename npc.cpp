@@ -5,6 +5,15 @@
 #include "npc.h"
 #include <iostream>
 
+std::ostream &operator<<(std::ostream &os, const Npc &npc) {
+    os << "Die Kampfarena betritt NPC " << npc.getName() << " mit "
+       << npc.getHealth() << " Gesundheitspunkten, "
+       << npc.getArmor() << " Rüstungspunkten, "
+       << npc.getMagicResistance() << " Magieresistenzpunkten und "
+       << npc.getGold() << " Goldstücken im Beutel.";
+    return os;
+}
+
 Npc::Npc() {}
 
 Npc::Npc(const std::string& name, int health, int gold, int armor, int magic_resistance) :  Character(name, health, gold, armor, magic_resistance) {}
@@ -26,5 +35,7 @@ void Npc::attack(Character& character) {
         character.setHealth(character.getHealth() - damage);
     }
 }
+
+
 
 

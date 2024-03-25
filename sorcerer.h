@@ -9,6 +9,10 @@
 #include "npc.h"
 
 class Sorcerer : public Npc{
+
+// Die friend-Deklaration für den Operator <<
+    friend std::ostream& operator<<(std::ostream& os, const Sorcerer& sorcerer);
+
 private:
     int magicPower;
 

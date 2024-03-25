@@ -13,6 +13,9 @@
 
 class Npc : public Character{
 
+    // Die friend-Deklaration für den Operator <<
+    friend std::ostream& operator<<(std::ostream& os, const Npc& npc);
+
 public:
     Npc();
 
