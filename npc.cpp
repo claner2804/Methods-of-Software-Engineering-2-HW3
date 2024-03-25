@@ -19,7 +19,7 @@ void Npc::attack(Character& character) {
     if (damage < 0) {
         damage = 0;
     }
-    std::cout << name << " trifft " << getName() << " fuer " << damage << " Lebenspunkte!" << std::endl;
+    std::cout << name << " trifft " << character.getName() << " fuer " << damage << " Lebenspunkte!" << std::endl;
     if (character.getHealth() - damage < 0) {
         character.setHealth(0);
     } else {
