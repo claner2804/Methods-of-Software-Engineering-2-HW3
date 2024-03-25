@@ -6,6 +6,21 @@
 #include <iostream>
 
 
+std::ostream &operator<<(std::ostream &os, const Fighter &fighter) {
+    os << "Die Kampfarena betritt Fighter " << fighter.getName() << " mit "
+       << fighter.getHealth() << " Gesundheitspunkten, "
+       << fighter.getArmor() << " Rüstungspunkten, "
+       << fighter.getMagicResistance() << " Magieresistenzpunkten, "
+       << fighter.getGold() << " Goldstücken im Beutel und "
+       << fighter.getStrength() << " Stärkepunkten.";
+    return os;
+}
+
+
+
+Fighter::Fighter() { }
+
+
 Fighter::Fighter(const std::string &name, int health, int gold, int armor, int magic_resistance, int strength) : Npc(name, health, gold, armor, magic_resistance) {
     this->strength = strength;
 }

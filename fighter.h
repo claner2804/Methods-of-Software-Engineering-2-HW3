@@ -9,6 +9,9 @@
 
 class Fighter : public Npc{
 
+    // Die friend-Deklaration für den Operator <<
+    friend std::ostream& operator<<(std::ostream& os, const Fighter& fighter);
+
 private:
     int strength;
 
