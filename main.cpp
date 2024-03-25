@@ -40,17 +40,17 @@ int main() {
     std::srand(std::time(nullptr));
 
     // Initialisierung des Helden
-    Hero Hero("Annina", 500, 150, 12, 100);
+    Hero Hero("Annina", 100, 150, 10, 100);
 
     // Initialisierung des Charakters Matthias
-    Fighter matthias("Matthias", 70, 100, 10, 30, 5);
+    Fighter matthias("Matthias", 70, 100, 5, 8, 5);
     Item item1("Zaubertrank", 120);
     matthias.addInventarItem(item1);
     Item item2("Schwert", 80);
     matthias.addInventarItem(item2);
 
     // Initialisierung des Charakters Pascal
-    Sorcerer pascal("Pascal", 80, 100, 4, 30, 10);
+    Sorcerer pascal("Pascal", 80, 100, 9, 5, 10);
     Item item3("Diamant", 300);
     pascal.addInventarItem(item3);
     Item item4("Zauberstab", 80);
