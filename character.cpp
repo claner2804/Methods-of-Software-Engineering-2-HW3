@@ -90,6 +90,19 @@ Item Character::retrieveRandomLoot() {
     return Item();
 }
 
+std::ostream &operator<<(std::ostream &os, const Character &character) {
+        os << "Die Kampfarena betritt " << character.getName() << " mit "
+           << character.getHealth() << " Gesundheitspunkten, "
+           << character.getArmor() << " Rüstungspunkten, "
+           << character.getMagicResistance() << " Magieresistenzpunkten und "
+           << character.getGold() << " Goldstücken im Beutel.";
+        return os;
+
+}
+
+
+
+
 
 
 

@@ -10,6 +10,11 @@ class Hero;
 
 
 class Character {
+
+    // Die friend-Deklaration für den Operator <<
+    friend std::ostream& operator<<(std::ostream& os, const Character& character);
+
+
 protected:
     std::string name;
     int health;

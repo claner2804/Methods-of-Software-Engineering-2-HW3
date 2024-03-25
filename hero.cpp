@@ -4,6 +4,15 @@
 #include <iostream>
 #include "character.h"
 
+// Die Operator-Überladungsfunktion außerhalb der Klassendefinition.
+std::ostream& operator<<(std::ostream& os, const Hero& hero) {
+    os << "Die Kampfarena betritt die unglaubliche " << hero.getName() << " mit " << hero.getHealth() << " Gesundheitspunkten, " << hero.getArmor() << " Rüstungspunkten, " << hero.getMagicResistance() << " Magieresistenzpunkten und " << hero.getGold() << " Goldstücken im Beutel.";
+    return os;
+}
+
+
+
+
 //Konstruktor und Destruktor
 Hero::Hero() {}
 

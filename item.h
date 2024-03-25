@@ -6,6 +6,11 @@
 
 
 class Item {
+
+    // Die friend-Deklaration für den Operator <<
+    friend std::ostream& operator<<(std::ostream& os, const Item& item);
+
+
 private:
     std::string name;
     int gold;

@@ -7,7 +7,12 @@
 #include "character.h"
 
 
+
 class Hero : public Character {
+
+    // Die friend-Deklaration für den Operator <<
+    friend std::ostream& operator<<(std::ostream& os, const Hero& hero);
+
 private:
     Item gear[10];
 

@@ -1,4 +1,4 @@
-
+#include <iostream>
 #include "item.h"
 
 Item::Item() {
@@ -16,6 +16,18 @@ Item::Item(const std::string &name, int gold) {
 }
 
 Item::~Item() {}
+
+// Die Operator-Überladungsfunktion außerhalb der Klassendefinition.
+std::ostream& operator<<(std::ostream& os, const Item& item) {
+    os << "Neues Item erschaffen: " << item.getName() << ", Wert: " << item.getGold() << " Gold ";
+    if (!item.isIsValid()) {
+        os << "ungültig";
+    }
+    return os;
+}
+
+
+
 
 
 
